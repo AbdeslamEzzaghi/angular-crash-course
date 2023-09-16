@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MyFirstService } from '../services/my-first.service';
 
 @Component({
@@ -13,6 +13,10 @@ export class MyFirstCompComponent {
   message: string = '';
   isSubmitted: boolean = false;
   messages: Array<any> = [];
+  // property injection
+  //private service : MyFirstService = inject(MyFirstService);
+  // constructor param : private service : MyFirstService
+  //constructor injection method
   constructor(private service : MyFirstService){
     this.messages = this.service.getAllMessages();
     this.isSubmitted = this.messages.length > 0;
@@ -27,7 +31,7 @@ export class MyFirstCompComponent {
     this.name = '';
     this.email = '';
     this.message = '';
-  }
+  } 
 
   deleteMessage(index: number) { 
     this.service.deleteMessage(index);

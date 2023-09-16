@@ -5,10 +5,12 @@ type message = {
   email: string;
   message: string;
 };
-
-@Injectable({
+//standard method
+/*@Injectable({
   providedIn: 'root',
-})
+})*/
+//using the provider in app.module.ts
+@Injectable()
 export class MyFirstService {
  
   messages: Array<any> = [];
